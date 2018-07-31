@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="application.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gamethread.cpp" />
+    <ClCompile Include="svga\MAPPING.CPP" />
+    <ClCompile Include="svga\SVGADRV.CPP" />
+    <ClCompile Include="svga\Svgawin.cpp" />
+    <ClCompile Include="W32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="svga\Svga.h" />
+    <ClInclude Include="W32.h" />
+    <ClInclude Include="racket.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="brick.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="ball.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="vec2d.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="game_field.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="movable_object.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="drawer.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="rectangle.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="colider.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="W32.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="kernel">
+      <UniqueIdentifier>{5a96fe21-8cdd-45e4-8954-fe08a68ec981}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
