@@ -4,12 +4,7 @@
 #include <list>
 #include <algorithm>
 
-#include "game_field.h"
-#include "racket.h"
-#include "ball.h"
-#include "drawer.h"
-
-#include "colider.h"
+#include "kernel/game_kernel.h"
 
 extern int gButtons[6];
 

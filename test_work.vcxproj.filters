@@ -14,42 +14,40 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="svga\Svga.h" />
     <ClInclude Include="W32.h" />
-    <ClInclude Include="racket.h">
+    <ClInclude Include="kernel\vec2d.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="brick.h">
+    <ClInclude Include="rectangle.h" />
+    <ClInclude Include="kernel\ball.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="ball.h">
+    <ClInclude Include="kernel\brick.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="vec2d.h">
+    <ClInclude Include="kernel\colider.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="game_field.h">
+    <ClInclude Include="kernel\game_field.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="game_object.h">
+    <ClInclude Include="kernel\game_kernel.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="movable_object.h">
+    <ClInclude Include="kernel\game_object.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\movable_object.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\racket.h">
       <Filter>kernel</Filter>
     </ClInclude>
     <ClInclude Include="drawer.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="rectangle.h">
-      <Filter>kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="colider.h">
-      <Filter>kernel</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="W32.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="kernel">

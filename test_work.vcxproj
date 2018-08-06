@@ -40,14 +40,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>.\Release\</OutDir>
-    <IntDir>.\Release\</IntDir>
+    <OutDir>$(SolutionDir)bin</OutDir>
+    <IntDir>$(SolutionDir)build\Release</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>pball</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>.\Debug\</OutDir>
-    <IntDir>.\Debug\</IntDir>
+    <OutDir>$(SolutionDir)bin</OutDir>
+    <IntDir>$(SolutionDir)build\Debug</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>pballd</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -82,7 +84,7 @@
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Release\test_work.exe</OutputFile>
+      <OutputFile>$(SolutionDir)bin\pball.exe</OutputFile>
       <AdditionalDependencies>ddraw.lib;winmm.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -122,7 +124,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Debug\test_work.exe</OutputFile>
+      <OutputFile>$(SolutionDir)bin\pballd.exe</OutputFile>
       <AdditionalDependencies>ddraw.lib;winmm.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -136,25 +138,23 @@
     <ClCompile Include="W32.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="W32.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ball.h" />
-    <ClInclude Include="brick.h" />
-    <ClInclude Include="colider.h" />
+    <ClInclude Include="kernel\ball.h" />
+    <ClInclude Include="kernel\brick.h" />
+    <ClInclude Include="kernel\colider.h" />
     <ClInclude Include="drawer.h" />
-    <ClInclude Include="game_field.h" />
-    <ClInclude Include="game_object.h" />
-    <ClInclude Include="movable_object.h" />
-    <ClInclude Include="racket.h" />
+    <ClInclude Include="kernel\game_field.h" />
+    <ClInclude Include="kernel\game_object.h" />
+    <ClInclude Include="kernel\game_kernel.h" />
+    <ClInclude Include="kernel\movable_object.h" />
+    <ClInclude Include="kernel\racket.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="svga\Svga.h" />
-    <ClInclude Include="vec2d.h" />
+    <ClInclude Include="kernel\vec2d.h" />
     <ClInclude Include="W32.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
