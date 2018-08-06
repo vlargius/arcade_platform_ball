@@ -16,7 +16,7 @@ struct Drawer {
 		height(height) {}
 
 	void draw(const MyRectangle * obj) {
-		draw_rect((int)obj->left(), (int)obj->top(), (int)obj->right(), (int)obj->bottom(), (int)obj->color);
+		draw_rect(obj->left(), obj->top(), obj->right(), obj->bottom(), obj->color);
 	}
 
 	int trim(int x, int len) {

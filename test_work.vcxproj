@@ -130,7 +130,13 @@
     <ClCompile Include="application.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gamethread.cpp" />
+    <ClCompile Include="svga\MAPPING.CPP" />
+    <ClCompile Include="svga\SVGADRV.CPP" />
+    <ClCompile Include="svga\Svgawin.cpp" />
     <ClCompile Include="W32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="W32.rc" />
@@ -147,6 +153,7 @@
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="svga\Svga.h" />
     <ClInclude Include="vec2d.h" />
     <ClInclude Include="W32.h" />
   </ItemGroup>

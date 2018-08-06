@@ -13,8 +13,6 @@ struct Color {
 	}
 };
 
-using uchar = unsigned char;
-
 struct MyRectangle
 {
 	vec2d pos;
@@ -27,7 +25,7 @@ struct MyRectangle
 		width(width),
 		height(height),
 		pos(pos){
-		Color c{ (uchar) (rand () % 255), (uchar) (rand() % 255), (uchar) (rand () % 255), (uchar)( 0) };
+		Color c{ rand () % 255, rand() % 255, rand () % 255, 0 };
 		color = c.to_uni();
 	}
 

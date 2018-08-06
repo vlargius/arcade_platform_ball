@@ -134,7 +134,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
   int wmId, wmEvent;
   PAINTSTRUCT ps;
   HDC hDC;
-  //RECT rect;
+  RECT rect;
   static int i;
   switch (message) {
   case WM_COMMAND:
