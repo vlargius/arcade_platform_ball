@@ -6,7 +6,7 @@ template <typename T> int sgn(T val) {
 	return (T(0) < val) - (val < T(0));
 }
 
-extern int gAxis[2];
+//extern int gAxis[2];
 
 class Racket : public MovableObject{
 
@@ -18,14 +18,14 @@ public:
 	void update() {
 		move();
 
-		
+		/*
 		if (gAxis[0] > 0 && right() < field.width)
 			velocity.x = acceleration;
 		else if (gAxis[0] < 0 &&  left() > 0)
 			velocity.x = -acceleration;
 
 		else
-			velocity.x -= sgn(velocity.x) * acceleration;
+			velocity.x -= sgn(velocity.x) * acceleration;*/
 	}
 
 	unsigned w() const { return width; }

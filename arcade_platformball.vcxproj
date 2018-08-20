@@ -15,6 +15,7 @@
     <SccLocalPath />
     <ProjectGuid>{D5E77400-C90A-44AA-B96C-4A07C427922C}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectName>arcade_platform_ball</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,12 +45,14 @@
     <IntDir>$(SolutionDir)build\Release</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <TargetName>pball</TargetName>
+    <LibraryPath>D:\lib\SDL2-2.0.8\VisualC\Win32\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin</OutDir>
     <IntDir>$(SolutionDir)build\Debug</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>pballd</TargetName>
+    <LibraryPath>D:\lib\SDL2-2.0.8\VisualC\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -65,11 +68,12 @@
       </PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\Release\test_work.tlb</TypeLibraryName>
+      <TypeLibraryName>.\Release\arcade_platformball.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
     </Midl>
@@ -79,13 +83,13 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Release\test_work.bsc</OutputFile>
+      <OutputFile>.\Release\arcade_platformball.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <OutputFile>$(SolutionDir)bin\pball.exe</OutputFile>
-      <AdditionalDependencies>ddraw.lib;winmm.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;OpenGL32.Lib;GlU32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -98,17 +102,15 @@
       <MinimalRebuild>true</MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Debug\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\Debug\test_work.tlb</TypeLibraryName>
+      <TypeLibraryName>.\Debug\arcade_platformball.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
     </Midl>
@@ -118,29 +120,24 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\test_work.bsc</OutputFile>
+      <OutputFile>.\Debug\arcade_platformball.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <OutputFile>$(SolutionDir)bin\pballd.exe</OutputFile>
-      <AdditionalDependencies>ddraw.lib;winmm.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;OpenGL32.Lib;GlU32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="application.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="gamethread.cpp" />
-    <ClCompile Include="svga\MAPPING.CPP" />
-    <ClCompile Include="svga\SVGADRV.CPP" />
-    <ClCompile Include="svga\Svgawin.cpp" />
-    <ClCompile Include="W32.cpp" />
+    <ClCompile Include="game.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="W32.rc" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="game.h" />
     <ClInclude Include="kernel\ball.h" />
     <ClInclude Include="kernel\brick.h" />
     <ClInclude Include="kernel\colider.h" />
@@ -150,12 +147,8 @@
     <ClInclude Include="kernel\game_kernel.h" />
     <ClInclude Include="kernel\movable_object.h" />
     <ClInclude Include="kernel\racket.h" />
-    <ClInclude Include="rectangle.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="svga\Svga.h" />
+    <ClInclude Include="kernel\rectangle.h" />
     <ClInclude Include="kernel\vec2d.h" />
-    <ClInclude Include="W32.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,9 +15,9 @@ namespace colider {
 			obj1->bottom() >= obj2->top() && obj1->top() <= obj2->bottom();
 	}
 
-	void colide(std::unique_ptr<Racket>& racket, std::unique_ptr<Ball>& ball)
+	void colide(Racket * racket, Ball *  ball)
 	{
-		if (!is_intersect(racket.get(), ball.get())) return;
+		if (!is_intersect(racket, ball)) return;
 
 		ball->velocity.y = -ball->velocity.y;
 		if (ball->pos.x < racket->pos.x)
@@ -29,9 +29,9 @@ namespace colider {
 	}
 
 
-	void colide(Brick * brick, std::unique_ptr<Ball>& ball)
+	void colide(Brick * brick, Ball *  ball)
 	{
-		if (!is_intersect(brick, ball.get())) return;
+		if (!is_intersect(brick, ball)) return;
 		brick->destroy();
 
 		double overlap_left{ ball->right() - ball->left() };

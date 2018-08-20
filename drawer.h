@@ -1,37 +1,54 @@
 #pragma once
-#include <algorithm>
+#include <iostream>
 
-#include "svga/Svga.h"
+#include <SDL.h>
+#include <SDL_main.h>
+#undef main
 
-#include "rectangle.h"
+#include "kernel/rectangle.h"
+
+using namespace std;
 
 struct Drawer {
-	unsigned * buffer;
+public:
+
+	Drawer(unsigned width, unsigned height):
+		width(width),
+		height(height) {
+		if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+			std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+		}
+		SDL_CreateWindowAndRenderer(width, height, 0, &window, &render);
+	}
+
+	~Drawer() {
+		SDL_DestroyRenderer(render);
+		SDL_DestroyWindow(window);
+		SDL_Quit();
+	}
+
+	void set_color(int r, int g, int b) {
+		SDL_SetRenderDrawColor(render, r, g, b, 255);
+	}
+
+	void draw(const MyRectangle * obj) {
+		SDL_Rect r{ obj->left(), obj->top(), obj->width, obj->height};		
+		SDL_RenderFillRect(render, &r);
+	}
+
+	void clear() {
+		SDL_RenderClear(render);
+	}
+
+	void present() {
+		SDL_RenderPresent(render);
+	}
+
+protected:
 	unsigned width;
 	unsigned height;
 
-	Drawer(unsigned * buffer, unsigned width, unsigned height):
-		buffer(buffer),
-		width(width),
-		height(height) {}
-
-	void draw(const MyRectangle * obj) {
-		draw_rect(obj->left(), obj->top(), obj->right(), obj->bottom(), obj->color);
-	}
-
-	int trim(int x, int len) {
-		if (x < 0) return 0;
-		if (x > len) return len;
-		return x;
-	}
-
-	void draw_rect(int x1, int y1, int x2, int y2, unsigned color) {
-
-		for (int i = trim(x1, width); i <= trim(x2, width); ++i) {
-			for (int j = trim(y1, height); j <= trim(y2, height); ++j) {
-				buffer[j*width + i] = color;
-			}
-		}
-	}
+	SDL_Window *window;
+	SDL_Renderer *render;
 
 };

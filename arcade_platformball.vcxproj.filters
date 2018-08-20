@@ -1,23 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="application.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="gamethread.cpp" />
-    <ClCompile Include="svga\MAPPING.CPP" />
-    <ClCompile Include="svga\SVGADRV.CPP" />
-    <ClCompile Include="svga\Svgawin.cpp" />
-    <ClCompile Include="W32.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="svga\Svga.h" />
-    <ClInclude Include="W32.h" />
-    <ClInclude Include="kernel\vec2d.h">
-      <Filter>kernel</Filter>
-    </ClInclude>
-    <ClInclude Include="rectangle.h" />
+    <ClInclude Include="drawer.h" />
     <ClInclude Include="kernel\ball.h">
       <Filter>kernel</Filter>
     </ClInclude>
@@ -42,16 +30,17 @@
     <ClInclude Include="kernel\racket.h">
       <Filter>kernel</Filter>
     </ClInclude>
-    <ClInclude Include="drawer.h">
+    <ClInclude Include="kernel\vec2d.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h" />
+    <ClInclude Include="kernel\rectangle.h">
       <Filter>kernel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="W32.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="kernel">
-      <UniqueIdentifier>{5a96fe21-8cdd-45e4-8954-fe08a68ec981}</UniqueIdentifier>
+      <UniqueIdentifier>{40d37eb8-8e10-474a-a93e-902865f0d838}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

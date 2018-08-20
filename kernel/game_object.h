@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../rectangle.h"
+#include "rectangle.h"
 
 struct GameObject : public MyRectangle {
 
