@@ -2,11 +2,12 @@
 
 #include "game_field.h"
 #include "game_object.h"
+#include "constants.h"
 
 struct MovableObject: public GameObject{
 
 	const GameField field;
-	double acceleration = 1.0;
+	vec2d acceleration = { 0.05, 0 };
 
 	vec2d velocity;
 
@@ -15,8 +16,8 @@ struct MovableObject: public GameObject{
 		field(field) {}
 
 
-	void move() {
-		pos.x += velocity.x;
-		pos.y += velocity.y;
+	void step(double dt = constants::step) {
+		pos.x += velocity.x * dt;
+		pos.y += velocity.y * dt;
 	}
 };

@@ -32,6 +32,7 @@ public:
 	}
 
 	void draw(const MyRectangle * obj) {
+		SDL_SetRenderDrawColor(render, obj->color.r, obj->color.g, obj->color.b, 255);
 		SDL_Rect r{ obj->left(), obj->top(), obj->width, obj->height};		
 		SDL_RenderFillRect(render, &r);
 	}

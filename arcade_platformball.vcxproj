@@ -48,8 +48,8 @@
     <LibraryPath>D:\lib\SDL2-2.0.8\VisualC\Win32\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)bin</OutDir>
-    <IntDir>$(SolutionDir)build\Debug</IntDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)build\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>pballd</TargetName>
     <LibraryPath>D:\lib\SDL2-2.0.8\VisualC\Win32\Debug;$(LibraryPath)</LibraryPath>
@@ -131,9 +131,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="game.cpp" />
+    <ClInclude Include="kernel\constants.h" />
+    <ClCompile Include="kernel\colider.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdlib.h>
+
 #include "vec2d.h"
 
 struct Color {
@@ -7,10 +9,6 @@ struct Color {
 	unsigned char g;
 	unsigned char r;
 	unsigned char a;
-
-	unsigned to_uni() {
-		return *reinterpret_cast<unsigned *>(this);
-	}
 };
 
 struct MyRectangle
@@ -19,14 +17,14 @@ struct MyRectangle
 	unsigned height;
 	unsigned width;
 
-	unsigned color; 
+	Color color;
 
 	MyRectangle(unsigned width, unsigned height, vec2d pos) :
 		width(width),
 		height(height),
 		pos(pos){
-		Color c{ rand () % 255, rand() % 255, rand () % 255, 0 };
-		color = c.to_uni();
+		Color c{ rand () % 255, rand() % 255, rand () % 255, 255 };
+		color = c;
 	}
 
 	double left() const { return pos.x - width / 2.; }

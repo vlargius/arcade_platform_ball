@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="kernel\colider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="drawer.h" />
@@ -35,6 +36,9 @@
     </ClInclude>
     <ClInclude Include="game.h" />
     <ClInclude Include="kernel\rectangle.h">
+      <Filter>kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\constants.h">
       <Filter>kernel</Filter>
     </ClInclude>
   </ItemGroup>

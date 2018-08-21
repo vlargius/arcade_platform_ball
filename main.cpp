@@ -8,22 +8,25 @@ using namespace std;
 
 int main() {
 
-	MyGame game;
-	SDL_Event e;
+	try {
+		MyGame game;
+		SDL_Event e;
 
-	while (true) 
-	{
-		game.draw_game();
+		while (true)
+		{
+			game.step();
+			game.draw();
 
-		while (SDL_PollEvent(&e)) {
-			//If user closes the window
-			if (e.type == SDL_QUIT) {
-			}
+			game.handle_events();
+
+			this_thread::sleep_for(chrono::milliseconds((int)constants::step));
 		}
-		
-		this_thread::sleep_for(chrono::milliseconds(200));
-
-	
+	}
+	catch (exception & e) {
+		cout << e.what() << endl;
+	}
+	catch (...) {
+		cout << "something bad happened!" << endl;
 	}
 
 	return 0;

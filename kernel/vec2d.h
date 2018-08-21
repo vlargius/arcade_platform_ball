@@ -17,4 +17,8 @@ struct vec2d {
 	vec2d operator *(double val) {
 		return { x * val, y * val };
 	}
+
+	vec2d operator +(vec2d vec) {
+		return { x * vec.x, y * vec.y };
+	}
 };
