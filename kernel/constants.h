@@ -3,6 +3,6 @@
 
 namespace constants {
 
-	const double step = 100;
+	const double step = 50;
 
 }

@@ -66,19 +66,28 @@ void MyGame::handle_events()
 		if (e.type == SDL_KEYDOWN) {
 			switch (e.key.keysym.sym) {
 			case SDLK_LEFT:
-				racket.acceleration = racket.acceleration + vec2d{10, 0};
+				racket.velocity = -racket.acceleration;
 				break;
 			case SDLK_RIGHT:
-				racket.acceleration = racket.acceleration + vec2d{ -10, 0 };
+				racket.velocity =  racket.acceleration;
 				break;
 			case SDLK_UP:
-				racket.acceleration = racket.acceleration + vec2d{ 1, 1 };
 				break;
 			case SDLK_DOWN:
-				racket.acceleration = racket.acceleration + vec2d{ 1, 1 };
 				break;
 			case SDLK_ESCAPE:
 			default:
+				break;
+			}
+		}
+
+		if (e.type == SDL_KEYUP) {
+			switch (e.key.keysym.sym) {
+			case SDLK_LEFT:
+				racket.velocity = { 0,0 };
+				break;
+			case SDLK_RIGHT:
+				racket.velocity = { 0,0 };
 				break;
 			}
 		}

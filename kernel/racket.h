@@ -15,7 +15,6 @@ public:
 		MovableObject(width, height, pos, field) {}
 
 	void step(double dt = constants::step) {
-
 		MovableObject::step(dt);
 	}
 

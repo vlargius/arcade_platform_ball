@@ -7,7 +7,7 @@
 struct MovableObject: public GameObject{
 
 	const GameField field;
-	vec2d acceleration = { 0.05, 0 };
+	vec2d acceleration = { 0.15, 0 };
 
 	vec2d velocity;
 
@@ -17,7 +17,15 @@ struct MovableObject: public GameObject{
 
 
 	void step(double dt = constants::step) {
-		pos.x += velocity.x * dt;
-		pos.y += velocity.y * dt;
+
+		double new_x = pos.x + velocity.x * dt;
+		double new_y = pos.y += velocity.y * dt;
+
+		if (!field.is_in(new_x, new_y)) {
+			return;
+		}
+
+		pos.x = new_x;
+		pos.y = new_y;
 	}
 };

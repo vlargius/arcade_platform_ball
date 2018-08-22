@@ -12,7 +12,7 @@ public:
 	Ball(unsigned width, unsigned height, vec2d pos, GameField field) :
 		MovableObject(width, height, pos, field) {
 		velocity = vec2d{ 0, -0.05};
-		acceleration = { 0.5, 0 };
+		acceleration = { 0.05, 0 };
 		norm = 0.5;
 	}
 

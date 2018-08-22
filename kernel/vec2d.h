@@ -10,6 +10,11 @@ struct vec2d {
 
 	double len() { return sqrt(x*x + y * y)+eps; }
 
+	vec2d operator-() {
+		vec2d tmp{ -x, -y };
+		return tmp;
+	}
+
 	vec2d operator /(double val) {
 		return { x / val, y / val };
 	}
@@ -19,6 +24,10 @@ struct vec2d {
 	}
 
 	vec2d operator +(vec2d vec) {
-		return { x * vec.x, y * vec.y };
+		return { x + vec.x, y + vec.y };
+	}
+
+	vec2d operator -(vec2d vec) {
+		return { x - vec.x, y - vec.y };
 	}
 };
